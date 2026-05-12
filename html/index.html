@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gerador de Currículo</title>
+    <title>Gerador de Relatórios</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" href="img/logo_gray.png" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.72/pdfmake.min.js"></script>
@@ -13,49 +13,42 @@
 
 <body>
     <div class="container">
-        <h1>Gerador de Currículo</h1>
+        <h1>Gerador de Relatórios</h1>
 
-        <form id="form-curriculo">
-            <label for="nome">Nome completo:</label>
-            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required />
+        <form id="form-logistica">
+            <label for="relatorio-id">ID do Relatório / Ordem de Serviço:</label>
+            <input type="text" id="relatorio-id" name="relatorio-id" placeholder="Ex: RL-2024-001" required />
 
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" placeholder="email@email.com" required />
+            <label for="data-operacao">Data da Operação:</label>
+            <input type="date" id="data-operacao" name="data-operacao" required />
 
-            <label for="telefone">Telefone:</label>
-            <input type="text" id="telefone" name="telefone" placeholder="(99)99999-9999" required />
+            <label for="responsavel">Operador Responsável:</label>
+            <input type="text" id="responsavel" name="responsavel" placeholder="Nome do conferente" required />
 
-            <label for="linkedin">LinkedIn:</label>
-            <input type="text" id="linkedin" name="linkedin" placeholder="https://www.linkedin.com/in/seu-nome"
-                required />
+            <hr>
 
-            <label for="portfolio">Link do portfólio:</label>
-            <input type="text" id="portfolio" name="portfolio" placeholder="Coloque aqui o link do seu portfólio" />
+            <label for="tipo-movimentacao">Tipo de Movimentação:</label>
+            <select id="tipo-movimentacao" name="tipo-movimentacao">
+                <option value="entrada">Entrada (Recebimento)</option>
+                <option value="saida">Saída (Expedição)</option>
+                <option value="transferencia">Transferência Interna</option>
+                <option value="inventario">Inventário Cíclico</option>
+            </select>
 
-            <label for="resumo">Objetivo:</label>
-            <textarea id="resumo" name="resumo" rows="4"></textarea>
+            <label for="nota-fiscal">Nota Fiscal (NF-e):</label>
+            <input type="text" id="nota-fiscal" name="nota-fiscal" placeholder="Número da Nota Fiscal" />
 
-            <label>Experiências:</label>
-            <div id="experiencias-container" class="grupo-dinamico">
-                <!-- Cada bloco vai conter: cargo, empresa/período e descrição -->
-            </div>
-            <button type="button" id="add-experiencia">+ Adicionar Experiência</button>
+            <hr>
 
-            <label>Formação Acadêmica:</label>
-            <div id="formacoes-container" class="grupo-dinamico">
-            </div>
-            <button type="button" id="add-formacao">+ Adicionar Formação</button>
+            <label for="status-carga">Status da Carga:</label>
+            <select id="status-carga" name="status-carga">
+                <option value="conferido">Conferido e OK</option>
+                <option value="divergencia">Divergência de Quantidade</option>
+                <option value="avaria">Avaria Identificada</option>
+            </select>
 
-            <label>Idiomas:</label>
-            <div id="idiomas-container" class="grupo-dinamico">
-            </div>
-            <button type="button" id="add-idioma">+ Adicionar Idioma</button>
-
-            <label>Habilidades:</label>
-            <div id="habilidades-container" class="grupo-dinamico">
-            </div>
-
-            <button type="button" id="add-habilidade">+ Adicionar Habilidade</button>
+            <label for="observacoes">Observações e Ocorrências:</label>
+            <textarea id="observacoes" name="observacoes" rows="4" placeholder="Descreva problemas com embalagem, atrasos da transportadora, etc."></textarea>
 
             <div class="botoes mensagem-e-botao">
                 <input type="text" name="website" id="website" style="display:none;" autocomplete="off" />
@@ -73,7 +66,7 @@
 
     <footer class="footer">
         <p>
-            Desenvolvido por <a href="https://emily.dev.br" target="_blank">Emily Birschner</a> •
+            Desenvolvido por <strong>Ewerton Souza</strong> •
             &copy; <span id="ano-atual"></span>
         </p>
     </footer>
